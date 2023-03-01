@@ -83,13 +83,10 @@ String programGUID;
 
 // RegisterBasicUserResult
 class RegisterBasicUserResult {
-  final String consentID
-  final ResponseStatus responseStatus;
+  final String rID;
 
-  RegisterBasicUserResult(this.consentID, this.responseStatus);
+  RegisterBasicUserResult(this.rID);
 }
-
-enum ResponseStatus { SUCCESS }
 ```
 
 **Error codes**
