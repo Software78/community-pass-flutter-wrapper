@@ -1,8 +1,8 @@
+import 'package:compass_library_wrapper_plugin/compass_library_wrapper_plugin.dart';
+import 'package:compass_library_wrapper_plugin/compass_library_wrapper_plugin_method_channel.dart';
+import 'package:compass_library_wrapper_plugin/compass_library_wrapper_plugin_platform_interface.dart';
 import 'package:compass_library_wrapper_plugin/compassapi.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:compass_library_wrapper_plugin/compass_library_wrapper_plugin.dart';
-import 'package:compass_library_wrapper_plugin/compass_library_wrapper_plugin_platform_interface.dart';
-import 'package:compass_library_wrapper_plugin/compass_library_wrapper_plugin_method_channel.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 class MockCompassLibraryWrapperPluginPlatform
@@ -37,6 +37,25 @@ class MockCompassLibraryWrapperPluginPlatform
   Future<WritePasscodeResult> getWritePasscode(String reliantGUID,
           String programGuid, String rID, String passcode) =>
       Future.value(WritePasscodeResult(responseStatus: ResponseStatus.SUCCESS));
+
+  @override
+  Future<WriteProgramSpaceResult> getWriteProgramSpace(
+          String reliantGUID,
+          String programGUID,
+          String rID,
+          String programSpaceData,
+          bool encryptData) =>
+      Future.value(WriteProgramSpaceResult(isSuccess: true));
+
+  @override
+  Future<ReadProgramSpaceResult> getReadProgramSpace(String reliantGUID,
+          String programGUID, String rID, bool decryptData) =>
+      Future.value(ReadProgramSpaceResult(programSpaceData: ""));
+
+  @override
+  Future<VerifyPasscodeResult> getVerifyPasscode(
+          String reliantGUID, String programGUID, String passcode) =>
+      Future.value(VerifyPasscodeResult(isSuccess: true, rID: "", status: true,retryCount: 0 ));
 }
 
 void main() {
