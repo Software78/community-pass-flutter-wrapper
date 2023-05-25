@@ -214,7 +214,7 @@ class VerifyPasscodeResult {
     return VerifyPasscodeResult(
       status: result[0]! as bool,
       rID: result[1]! as String,
-      retryCount: result[2]! as int,
+      retryCount: result[2]! as int, isSuccess: result[3]! as bool,
     );
   }
 }
